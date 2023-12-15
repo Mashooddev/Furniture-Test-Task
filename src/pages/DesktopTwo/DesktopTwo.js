@@ -9,30 +9,17 @@ import Context from "../../Context";
 export default function DesktopTwo() {
   const { apiData, setApiData } = useContext(Context);
 
-  console.log("two page pr:", apiData);
-
   const [selectedStyleIndex, setSelectedStyleIndex] = useState(1);
   const [selectedStyleText, setSelectedStyleText] = useState("");
-  const handleStyleClick = (index) => {
-    setSelectedStyleIndex(index);
-
-    // Map the index to the corresponding theme name
-    const themeNames = ["Theme One", "Theme Two", "Theme Three", "Theme Four"];
-    setSelectedStyleText(themeNames[index]);
-
-    console.log("Selected Style Index:", index);
-  };
+  const [selectedColorIndex, setSelectedColorIndex] = useState(null);
+  const [selectedBudgetIndex, setSelectedBudgetIndex] = useState(1);
+  const [selectedBudgetText, setSelectedBudgetText] = useState("");
   const styles = [
     { imgSrc: wallImg, width: "141.06px", height: "95.79px" },
     { imgSrc: wallImg, width: "141.06px", height: "95.79px" },
     { imgSrc: wallImg, width: "141.06px", height: "95.79px" },
     { imgSrc: wallImg, width: "141.06px", height: "95.79px" },
   ];
-
-  const [selectedColorIndex, setSelectedColorIndex] = useState(null);
-  const handleColorClick = (index) => {
-    setSelectedColorIndex(index);
-  };
 
   const colors = [
     { color: "#FFF0CD" },
@@ -41,8 +28,26 @@ export default function DesktopTwo() {
     { color: "#A35656" },
   ];
 
-  const [selectedBudgetIndex, setSelectedBudgetIndex] = useState(1);
-  const [selectedBudgetText, setSelectedBudgetText] = useState("");
+  const Budgets = [
+    { budget: "1000 SAR-5000 SAR" },
+    { budget: "6000 SAR-10.000 SAR" },
+    { budget: "11,000 SAR-15,000 SAR" },
+    { budget: "16,000 SAR-20,000 SAR" },
+  ];
+
+
+  const handleStyleClick = (index) => {
+    setSelectedStyleIndex(index);
+
+    // Map the index to the corresponding theme name
+    const themeNames = ["Theme 1", "Theme 2", "Theme 3", "Theme 4"];
+    setSelectedStyleText(themeNames[index]);
+  };
+
+  const handleColorClick = (index) => {
+    setSelectedColorIndex(index);
+  };
+
   const handleBudgetClick = (index) => {
     setSelectedBudgetIndex(index);
     // Map the index to the corresponding theme name
@@ -55,26 +60,20 @@ export default function DesktopTwo() {
     setSelectedBudgetText(budgetAmount[index]);
   };
 
-  const Budgets = [
-    { budget: "1000 SAR-5000 SAR" },
-    { budget: "6000 SAR-10.000 SAR" },
-    { budget: "11,000 SAR-15,000 SAR" },
-    { budget: "16,000 SAR-20,000 SAR" },
-  ];
-
   const hasData =
     selectedStyleText !== "" &&
     selectedColorIndex !== null &&
     selectedBudgetText !== "";
 
   const page = "/favourites";
+
   return (
     <div>
       <Container className="my-5">
         <Row>
           <Col sm={12} md={6} lg={6} xl={6} xxl={6}>
             <div>
-              <Image src={wallImg} width="629px" height="407px" />
+              <Image src={wallImg} alt="floor plan" className="wall_image" />
             </div>
           </Col>
 
@@ -83,8 +82,7 @@ export default function DesktopTwo() {
               <Accordion.Item eventKey="0">
                 <Accordion.Header>
                   <div
-                    className="d-flex flex-row justify-content-between align-items-center"
-                    style={{ width: "95%" }}
+                    className="d-flex flex-row justify-content-between align-items-center accordion_header"
                   >
                     <div>1. Select your style</div>
                     <div>{selectedStyleText}</div>
@@ -120,8 +118,7 @@ export default function DesktopTwo() {
               <Accordion.Item eventKey="1">
                 <Accordion.Header>
                   <div
-                    className="d-flex flex-row justify-content-between align-items-center"
-                    style={{ width: "95%" }}
+                    className="d-flex flex-row justify-content-between align-items-center accordion_header"
                   >
                     <div>2. Select your color</div>
                     {selectedColorIndex !== null && ( // Only render if a color is selected
@@ -163,8 +160,7 @@ export default function DesktopTwo() {
               <Accordion.Item eventKey="2">
                 <Accordion.Header>
                   <div
-                    className="d-flex flex-row justify-content-between align-items-center"
-                    style={{ width: "95%" }}
+                    className="d-flex flex-row justify-content-between align-items-center accordion_header"
                   >
                     <div>1. Select your style</div>
                     <div>{selectedBudgetText}</div>

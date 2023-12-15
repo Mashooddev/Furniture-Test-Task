@@ -10,7 +10,7 @@ export default function DesktopOne() {
   const navigate = useNavigate ();
   const { apiData, setApiData } = useContext(Context);
 
-  console.log("one page pr:", apiData);
+  console.log("Api Response:", apiData);
 
   const ChangePage = () => {
     navigate("/floor-plan");

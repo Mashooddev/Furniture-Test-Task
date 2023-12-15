@@ -75,3 +75,12 @@
   justify-content: center;
   align-items: center;
 }
+
+.wall_image{
+  width: 629px;
+  height: 407px;
+}
+
+.accordion_header{
+  width: 95% !important;
+}

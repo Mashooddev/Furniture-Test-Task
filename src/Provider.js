@@ -37,9 +37,6 @@ const Provider = ({ children }) => {
       // If the response is OK, parse it as JSON
       const responseData = await response.json();
 
-      // Do something with the data, for example, log it
-      console.log(responseData);
-
       setApiData(responseData)
 
     } catch (error) {
