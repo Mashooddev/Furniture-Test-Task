@@ -1,0 +1,11 @@
+.navbar_bg_color{
+    background: #FFFCF5 !important;
+}
+
+.nav-link > a{
+    font-weight: 400 !important;
+    size: 18px !important; 
+    line-height: 28px !important;
+    color: #1F2937 !important;
+    text-decoration: none !important;
+}
